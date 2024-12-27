@@ -20,7 +20,7 @@ const useGames = () => {
     return () => cancel();
   }, []);
 
-  return { games, setGames, error, setError };
+  return { games, error };
 };
 
 export default useGames;
