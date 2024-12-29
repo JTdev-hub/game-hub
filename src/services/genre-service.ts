@@ -11,5 +11,6 @@ export interface FetchGenresResponse {
   count: number;
   results: Genres[];
 }
+const genresService = create("/genres");
 
-export default create("/genres");
+export default genresService;

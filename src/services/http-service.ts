@@ -1,4 +1,5 @@
 import apiClient from "./api-client";
+import { FetchResponse } from "./fetch-response";
 
 class HttpService {
   endpoint: string;
@@ -9,9 +10,11 @@ class HttpService {
 
   getAll<T>() {
     const controller = new AbortController();
-    const request = apiClient.get<T>(this.endpoint, {
-      signal: controller.signal,
-    });
+    const request = apiClient
+      .get<FetchResponse<T>>(this.endpoint, {
+        signal: controller.signal,
+      })
+      .then((response) => response.data);
 
     return { request, cancel: () => controller.abort() };
   }

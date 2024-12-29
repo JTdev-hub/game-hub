@@ -43,4 +43,6 @@ export const iconMap: { [key: string]: IconType } = {
   web: BsGlobe,
 };
 
-export default create("/games");
+const gameService = create("/games");
+
+export default gameService;
