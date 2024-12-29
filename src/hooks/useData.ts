@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import { CanceledError } from "axios";
 import { FetchResponse } from "../services/fetch-response";
@@ -6,7 +8,7 @@ const useData = <T>(
   service: {
     getAll: () => { request: Promise<FetchResponse<T>>; cancel: () => void };
   },
-  deps?: unknown
+  deps?: any
 ) => {
   const [isLoading, setLoading] = useState(false);
   const [data, setData] = useState<T[]>([]);
