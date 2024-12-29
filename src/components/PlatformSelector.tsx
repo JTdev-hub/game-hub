@@ -4,7 +4,7 @@ import platformsService, { Platforms } from "../services/platform-service";
 import { BsChevronDown } from "react-icons/bs";
 
 interface Props {
-  onSelectPlatform: (platforms: Platforms | null) => void;
+  onSelectPlatform: (platforms: Platforms) => void;
   selectedPlatform: Platforms | null;
 }
 const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
