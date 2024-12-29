@@ -11,6 +11,7 @@ import { IconType } from "react-icons";
 import { BsGlobe } from "react-icons/bs";
 import { MdPhoneIphone } from "react-icons/md";
 import { SiNintendo } from "react-icons/si";
+import { Genres } from "./genre-service";
 
 export interface Platform {
   id: number;
@@ -24,6 +25,7 @@ export interface Game {
   background_image: string;
   parent_platforms: { platform: Platform }[];
   metacritic: number;
+  genres: Genres[];
 }
 
 export interface FetchGamesResponse {
@@ -43,6 +45,7 @@ export const iconMap: { [key: string]: IconType } = {
   web: BsGlobe,
 };
 
-const gameService = create("/games");
+const gameService = (selectedGenre: Genres | null) =>
+  create("/games", { params: { genres: selectedGenre?.id } });
 
 export default gameService;
