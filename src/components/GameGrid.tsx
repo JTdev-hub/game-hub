@@ -5,21 +5,25 @@ import GameCardContainer from "./GameCardContainer";
 import useData from "../hooks/useData";
 import gameService, { Game } from "../services/game-service";
 import { Genres } from "../services/genre-service";
+import { Platforms } from "../services/platform-service";
 
 interface Props {
   selectedGenre: Genres | null;
+  selectedPlatform: Platforms | null;
 }
-const GameGrid = ({ selectedGenre }: Props) => {
+const GameGrid = ({ selectedGenre, selectedPlatform }: Props) => {
   const {
     data: games,
     error,
     isLoading,
-  } = useData<Game>(gameService(selectedGenre), [selectedGenre?.id]);
+  } = useData<Game>(gameService(selectedGenre, selectedPlatform), [
+    selectedGenre?.id,
+    selectedPlatform?.id,
+  ]);
   const skeletons = [1, 2, 3, 4, 5, 6];
   return (
     <>
       {error && <Text>{error}</Text>}
-
       <SimpleGrid
         columns={{ sm: 1, md: 2, lg: 3, xl: 5 }}
         padding="10px"
