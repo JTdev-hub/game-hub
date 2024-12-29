@@ -51,6 +51,7 @@ const gameService = (gameQuery: GameQuery | null) =>
     params: {
       genres: gameQuery?.genre?.id,
       parent_platforms: gameQuery?.platforms?.id,
+      ordering: gameQuery?.sortOrder,
     },
   });
 
