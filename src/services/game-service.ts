@@ -52,6 +52,7 @@ const gameService = (gameQuery: GameQuery | null) =>
       genres: gameQuery?.genre?.id,
       parent_platforms: gameQuery?.platforms?.id,
       ordering: gameQuery?.sortOrder,
+      search: gameQuery?.searchText,
     },
   });
 
