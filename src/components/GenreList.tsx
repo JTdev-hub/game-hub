@@ -25,7 +25,7 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
         <Spinner />
       ) : (
         <div>
-          <Heading fontSize={"2xl"} marginBottom={"3"}>
+          <Heading fontSize={"2xl"} marginBottom={3}>
             Genres
           </Heading>
           <List spacing={3}>
